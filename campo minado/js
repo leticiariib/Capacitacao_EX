@@ -1,1 +1,39 @@
+function criarCampo(linhas, colunas) {
+    let campo = [];
 
+    for (let i = 0; i < linhas; i++) {
+        let linha = [];
+        for (let j = 0; j < colunas; j++) {
+            let Square = {
+                row: i,
+                column: j,
+                state: "closed", // Pode ser: closed, opened, flagged
+                hasMine: false,
+                nearMines: 0, // Número de minas em volta
+            };
+            linha.push(Square);
+        }
+        campo.push(linha);
+    }
+
+    return campo;
+}
+
+function sortearMinas(campo, quantidadeDeMinas) {
+    let linhas = campo.length;
+    let colunas = campo[0].length;
+    let minasSorteadas = 0;
+
+    while (minasSorteadas < quantidadeDeMinas) {
+        let i = Math.floor(Math.random() * linhas);
+        let j = Math.floor(Math.random() * colunas);
+
+        if (!campo[i][j].hasMine) {
+            campo[i][j].hasMine = true;
+            minasSorteadas++;
+        }
+    }
+}
+
+function contarBombasVizinhas(campo, linha, coluna) 
+    
