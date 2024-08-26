@@ -1,0 +1,21 @@
+interface GreetingProps{
+  name: string;
+  age: number; 
+}
+
+const Greeting = ({name, age} : GreetingProps) => {
+  const greetingStyle: React.CSSProperties = {
+    color: "pink",
+    fontWeight: "bold",
+    textAlign: "center",
+    fontSize: "56px",
+  };
+
+  return (
+    <div style = {greetingStyle}>
+      Olá {name}! Voce tem {age} anos! 
+    </div>
+  );
+};
+
+export default Greeting; 
