@@ -1,0 +1,40 @@
+interface GreetingProps{
+  name: string;
+}
+
+const Greeting = ({name} : GreetingProps) => {
+  const greetingStyle: React.CSSProperties = {
+    color: "pink",
+    fontWeight: "bold",
+    textAlign: "center",
+    fontSize: "56px",
+  };
+
+  return (
+    <div style = {greetingStyle}>
+      Olá {name}!
+    </div>
+  );
+};
+
+export default Greeting; 
+
+
+/*
+No App.tsx: 
+
+import './components/ex1'
+import './App.css'
+import Greeting from './components/ex1'
+
+const App: React.FC = () => {
+  return (
+    <div>
+      <Greeting name = "Letícia"/>
+    </div>
+  )
+}
+ 
+export default App
+
+*/
