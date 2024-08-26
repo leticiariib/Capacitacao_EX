@@ -1,0 +1,46 @@
+type ListItemProps = {
+  name: string,
+  index: number,
+};
+
+const ListItem = ({name, index} : ListItemProps) => {
+  
+  return (
+    <li className="bg-pink-700 p-2 m-1 rounded">
+         {index + 1}. {name}
+        </li>
+      );
+    }
+    
+const ListContainer = () => {
+  const items : string[] = ["Leticia", "Luana", "Gil", "Leide", "Ivone"];
+  
+  return (
+    <ul className = "list-disc p-5">
+        {items.map((item, index) => (
+          <ListItem key={index} index={index} name={item}/>
+        ))}
+    </ul>
+    );
+}
+
+export default ListContainer;
+
+/*
+No App.tsx:
+
+import './components/ex1'
+import './App.css'
+import ListContainer from './components/ex1'
+
+
+const App: React.FC = () => {
+  return (
+    <div className="flex justify-center items-center h-screen bg-grey-100">
+      <ListContainer/> 
+    </div>
+  );
+}
+ 
+export default App
+*/
