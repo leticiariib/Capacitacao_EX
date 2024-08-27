@@ -1,0 +1,40 @@
+interface Item {
+  name: string;
+  grade: number;
+};
+
+
+const ItemList = () => {
+  const listStyle: React.CSSProperties = {
+    color: "pink",
+    fontWeight: "bold",
+    fontSize: "50px",
+  }; 
+
+  const topicStyle: React.CSSProperties = {
+    color: "#e75480",
+    fontWeight: "bold",
+    fontSize: "50px",
+  }
+
+    const items: Item[] = [
+      {name: "ECOP14A", grade: 9},
+      {name: "ELTA01", grade: 10},
+      {name: "ECOM00", grade: 9.7},
+    ];
+    
+    return (
+      <ul style = {listStyle}>
+        {items.map(item => (
+            <li>
+             <span style= {topicStyle}>Materia: </span>{item.name}  
+             <span style= {topicStyle}>  Nota: </span>{item.grade}
+            </li>
+          ))}
+      
+      </ul>    
+    );
+}
+
+export default ItemList;
+ 
