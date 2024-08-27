@@ -1,0 +1,29 @@
+import { useState, useEffect } from 'react'; 
+
+const ClickDown = () => {
+  const [count, setCount] = useState(10);
+
+  const handleButtonClick = () => {
+    if(count > 0){
+      setCount(count -1);
+    }
+  };
+  
+  useEffect(() => {
+    if(count >=0) {
+      alert(`Voce ainda tem ${count} clicks`); 
+    }
+  }, [count]); 
+  
+  return (
+    <div>
+      <button onClick={handleButtonClick} disabled={count ===0}>
+        Clique!
+      </button>
+      <p>Contagem: {count}</p>
+      {count === 0 && <p>Acabou!</p>}
+    </div>
+  );
+};
+
+export default ClickDown;
