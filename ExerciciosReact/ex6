@@ -1,0 +1,23 @@
+import { useState } from 'react'; 
+
+const GenerateNumber = () => {
+  const [numeroAleatorio, setNumeroAleatorio] = useState(0);
+
+  const gerarNumeroAleatotio = (): void => {
+    const numeroAtual = Math.floor(Math.random()*100) + 1; 
+    setNumeroAleatorio(numeroAtual);
+  };
+
+  return (
+    <div>
+      <p>
+        Sorteado: {numeroAleatorio}
+      </p>
+      <button onClick = {gerarNumeroAleatotio}>
+        Roda Roda Numero!
+      </button>
+    </div>
+  )
+}
+
+export default GenerateNumber;
