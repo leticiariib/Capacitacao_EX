@@ -1,0 +1,34 @@
+import { useState } from 'react'; 
+
+const ToggleText = () => {
+  const [textoRealizar, setTextoRealizar] = useState(false); // Corrigido para setTextoRealizar
+
+  const toggleCheck = () => {
+    setTextoRealizar(!textoRealizar); // Atualiza o estado corretamente
+  };
+
+  const styleTextoRealizar: React.CSSProperties = {
+    textDecoration: "line-through",
+  };
+
+  const styleTextoFeito: React.CSSProperties = {
+    textDecoration: "none",
+  };
+
+  return (
+    <div>
+      <label>
+        <input 
+          type="checkbox" 
+          checked={textoRealizar} 
+          onChange={toggleCheck} 
+        />
+        <span style={textoRealizar ? styleTextoRealizar : styleTextoFeito}>
+          Fazer exercício React
+        </span>
+      </label>
+    </div>
+  );
+}
+
+export default ToggleText;
