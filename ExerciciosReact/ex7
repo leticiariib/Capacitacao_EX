@@ -1,0 +1,34 @@
+import { useState } from 'react'; 
+
+const  ToggleText= () => {
+  const [textoPrimeiro, textoSegundo] = useState(false);
+
+  const toggleText = () => {
+    textoSegundo(!textoPrimeiro);
+  };
+
+  const styleTextoPrimeiro: React.CSSProperties = {
+    color: "pink",
+    fontWeight: "bold",
+    fontSize: "56px",
+  };
+
+  const styleTextoSegundo: React.CSSProperties = {
+    color: "blue",
+    fontWeight: "bold",
+    fontSize: "56px",
+  }
+
+  return (
+    <div>
+      <p style= {textoPrimeiro ? styleTextoPrimeiro : styleTextoSegundo}>
+        {textoPrimeiro ? 'Eu amo meu namorado' : 'Meu namorado me ama'}
+      </p>
+      <button onClick = {toggleText}>
+        Revele a paixão! 
+      </button>
+    </div>
+  )
+}
+
+export default ToggleText;
