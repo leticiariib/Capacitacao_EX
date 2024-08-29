@@ -1,0 +1,82 @@
+//Componente Parent 
+import { useState } from 'react'; 
+import Child from './ex2'; 
+
+const Parent = () => {
+  const [text, setText] = useState('');
+  
+  const parentStyle: React.CSSProperties = {
+    color: "green", 
+    fontSize: "30px",
+  }; 
+
+  return (
+    <div style = {parentStyle}>
+      <h1>
+        Parent Component
+      </h1>
+      <p> 
+        Texto Atual: {text}
+      </p>
+      <Child setText={setText}/>
+    </div>
+  )
+}
+
+export default Parent; 
+
+//Componente Child 
+
+import { useState } from 'react';
+
+interface ChildProps {
+  setText: (value: string) => void;
+}
+const Child = ({setText} : ChildProps) =>{
+  
+
+  const [inputValue, setInputValue] = useState(''); 
+
+  const handleClick = () => {
+    setText(inputValue); 
+  }; 
+
+  const styleChild = {
+    color: "orange",
+    fontSize: "40px",
+  };
+
+  return (
+    <div style= {styleChild}>
+      <h2>Componente Filho</h2>
+      <input
+        type = "text" value={inputValue} onChange={(e) => setInputValue(e.target.value)}
+      />
+    <button onClick={handleClick}>
+      Atualizar Texto do Parent 
+    </button>
+
+
+    </div>
+  );
+};
+
+export default Child; 
+
+//App.tsx
+
+import './components/ex1'
+import './App.css'
+import Parent from './components/ex1'
+
+
+const App: React.FC = () => {
+  return (
+    <div>
+      <Parent/> 
+    </div>
+  );
+}
+ 
+export default App;
+
